@@ -1,0 +1,37 @@
+================================================================================
+AUTONOMOUS 7-AGENT SDLC MULTI-PROJECT MASTER PLATFORM
+================================================================================
+
+HOW TO RUN IN VS CODE POWERSHELL:
+---------------------------------
+1. Open PowerShell in VS Code
+2. Copy and paste the command below:
+
+cd "C:\Users\panka\.gemini\antigravity\scratch\unified_sdlc_master_platform"
+& "C:\Users\panka\.gemini\antigravity\scratch\ocr_multiagent_system\venv_ocr\Scripts\python.exe" -m streamlit run app.py --server.port 8508
+
+3. Open your browser and navigate to:
+   http://localhost:8508
+
+--------------------------------------------------------------------------------
+OR 1-CLICK LAUNCH:
+--------------------------------------------------------------------------------
+Double-click `run_master_platform.bat` inside:
+C:\Users\panka\.gemini\antigravity\scratch\unified_sdlc_master_platform\
+
+--------------------------------------------------------------------------------
+FEATURES INCLUDED:
+--------------------------------------------------------------------------------
+- Dropdown Project Selector:
+    * 🚗 Moving Car & Road Object Detection (AutoVision AI)
+    * 🩺 Medical Image Analysis Platform (MedVision AI)
+    * 💳 Banking Fraud Detection System (FraudGuard AI)
+- Auto-Loaded Prompts:
+    Selecting any project instantly populates the exact natural language requirement
+    into the prompt window (zero manual typing required).
+- Zero Changes to Dashboards:
+    Each project runs its 100% native dashboard, telemetry metrics, and test suites.
+- 7 SDLC Agents Hub:
+    Re-run the full 7-agent pipeline (PM, Architect, Planner, Dev, Reviewer, QA, Watchdog)
+    and inspect deliberations or run isolated unit tests.
+================================================================================
