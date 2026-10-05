@@ -14,11 +14,13 @@ BASE_DIR = Path(__file__).resolve().parent
 # Projects Directory references - Supports both self-contained repo & local dev
 if (BASE_DIR / "projects" / "moving_car_object_detection").exists():
     MOVING_CAR_DIR = BASE_DIR / "projects" / "moving_car_object_detection"
+    FACE_DIR = BASE_DIR / "projects" / "multi_agent_face_detection"
     MEDICAL_DIR = BASE_DIR / "projects" / "medical_image_analysis"
     BANKING_DIR = BASE_DIR / "projects" / "banking_fraud_system"
 else:
     SCRATCH_DIR = BASE_DIR.parent
     MOVING_CAR_DIR = SCRATCH_DIR / "moving_car_object_detection"
+    FACE_DIR = SCRATCH_DIR / "multi_agent_face_detection"
     MEDICAL_DIR = SCRATCH_DIR / "medical_image_analysis"
     BANKING_DIR = SCRATCH_DIR / "sdlc_multiagent_system" / "generated_projects" / "banking_fraud_system"
 
@@ -55,15 +57,21 @@ PROJECT_PROMPTS = {
         "with YOLOv8 ONNX 640x640, centroid motion vector tracking, collision proximity warning, "
         "10 automated road safety test suites, and permanent side-by-side video command center."
     ),
-    "medical": (
-        "Build an automated Medical Image Analysis and Clinical Decision Support System "
-        "with SQLite database, digital image processing for Chest X-Ray findings "
-        "(Pneumonia, Cardiomegaly CTR, Pulmonary Nodule, Brain MRI, Head CT), "
-        "composite diagnostic scoring, and 10 clinical safety unit tests."
+    "face": (
+        "Build a robust Multi-Agent Face Detection & Self-Healing Platform "
+        "using YuNet ONNX Deep Learning, autonomous image quality inspection, "
+        "self-healing enhancement loops (CLAHE illumination equalizing and unsharp sharpening), "
+        "and multi-frame video playback analytics dashboard."
     ),
     "banking": (
         "Build an advanced Banking Fraud Detection System with SQLite database tables, "
         "real-time transaction scoring algorithms, rapid velocity rules, "
         "high-risk merchant category code (MCC) detection, and automated unit tests."
+    ),
+    "medical": (
+        "Build an automated Medical Image Analysis and Clinical Decision Support System "
+        "with SQLite database, digital image processing for Chest X-Ray findings "
+        "(Pneumonia, Cardiomegaly CTR, Pulmonary Nodule, Brain MRI, Head CT), "
+        "composite diagnostic scoring, and 10 clinical safety unit tests."
     )
 }

@@ -26,6 +26,7 @@ if str(BASE_DIR) not in sys.path:
 
 from config import (
     MOVING_CAR_DIR,
+    FACE_DIR,
     MEDICAL_DIR,
     BANKING_DIR,
     PROJECT_PROMPTS,
@@ -34,6 +35,7 @@ from config import (
 from sdlc_core.state import create_initial_state, add_log_entry
 from sdlc_core.graph import build_sdlc_graph
 from dashboards.car_dashboard import render_car_dashboard
+from dashboards.face_dashboard import render_face_dashboard
 from dashboards.medical_dashboard import render_medical_dashboard
 from dashboards.banking_dashboard import render_banking_dashboard
 
@@ -123,8 +125,9 @@ st.sidebar.caption("Unified Autonomous Multi-Project Orchestrator")
 
 project_options = [
     "🚗 Moving Car & Road Object Detection (AutoVision AI)",
-    "🩺 Medical Image Analysis Platform (MedVision AI)",
-    "💳 Banking Fraud Detection System (FraudGuard AI)"
+    "👁️ Multi-Agent Face Detection & Self-Healing (FaceVision AI)",
+    "💳 Banking Fraud Detection System (FraudGuard AI)",
+    "🩺 Medical Image Analysis Platform (MedVision AI)"
 ]
 
 selected_project = st.sidebar.selectbox(
@@ -138,14 +141,18 @@ if "Car" in selected_project:
     default_prompt = PROJECT_PROMPTS["car"]
     active_dir = MOVING_CAR_DIR
     proj_key = "car"
-elif "Medical" in selected_project:
-    default_prompt = PROJECT_PROMPTS["medical"]
-    active_dir = MEDICAL_DIR
-    proj_key = "medical"
-else:
+elif "Face" in selected_project:
+    default_prompt = PROJECT_PROMPTS["face"]
+    active_dir = FACE_DIR
+    proj_key = "face"
+elif "Banking" in selected_project:
     default_prompt = PROJECT_PROMPTS["banking"]
     active_dir = BANKING_DIR
     proj_key = "banking"
+else:
+    default_prompt = PROJECT_PROMPTS["medical"]
+    active_dir = MEDICAL_DIR
+    proj_key = "medical"
 
 st.sidebar.markdown("### 📝 Pre-Loaded SDLC Prompt")
 user_prompt = st.sidebar.text_area(
@@ -199,10 +206,12 @@ with tab_app:
     # Render the exact active project dashboard without any changes
     if proj_key == "car":
         render_car_dashboard()
-    elif proj_key == "medical":
-        render_medical_dashboard()
-    else:
+    elif proj_key == "face":
+        render_face_dashboard()
+    elif proj_key == "banking":
         render_banking_dashboard()
+    else:
+        render_medical_dashboard()
 
 with tab_agents:
     st.markdown("### 🤖 SDLC Multi-Agent Squad Deliberations")
